@@ -19,19 +19,17 @@ public class Car {
     }
 
     public void drive() {
-        if(road != null && road.canGo()) {
+        if(road.canGo()) {
             System.out.println("I'm driving on " + road);
-            weather.printWeather();
+        } else {
+            System.out.println("I can't drive on " + road);
         }
+
+        weather.printWeather();
     }
 
     public void stop() {
-        if(road == null) {
-            System.out.println("I stop");
-            weather.printWeather();
-        } else {
-            System.out.println("I stop on " + road);
-            weather.printWeather();
-        }
+        System.out.println("I stop on " + road);
+        weather.printWeather();
     }
 }

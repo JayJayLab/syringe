@@ -1,5 +1,6 @@
 package com.github.jayjaylab.wrongexample;
 
+import javax.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +45,11 @@ public class Syringe {
         return new Car();
     }
 
-    public GangnamRoad provideRoad() {
+    public GangnamRoad provideGangnamRoad() {
         return new GangnamRoad();
+    }
+
+    public SamsungRoad provideSamsungRoad() {
+        return new SamsungRoad();
     }
 }

@@ -5,22 +5,26 @@ import javax.inject.Named;
 
 public class App {
     @Inject Car car;
-    @Inject @Named("gangnam") Road road;
+    @Inject @Named("gangnam") Road gangnamRoad;
+    @Inject @Named("samsung") Road samsungRoad;
     @Inject Weather weather;
 
     public App() {
         car = Syringe.getInstance().provideCar();
-        road = Syringe.getInstance().provideRoad();
+        gangnamRoad = Syringe.getInstance().provideGangnamRoad();
+        samsungRoad = Syringe.getInstance().provideSamsungRoad();
         weather = Syringe.getInstance().provideWeahter();
     }
 
     public void run() {
-        car.setRoad(road);
-
+        car.setRoad(gangnamRoad);
         weather.setState("raining");
         car.drive();
         weather.setState("cloudy");
         car.stop();
+
+        car.setRoad(samsungRoad);
+        car.drive();
     }
 
     public static void main(String[] args ) {
